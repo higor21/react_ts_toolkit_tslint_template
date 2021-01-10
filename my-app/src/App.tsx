@@ -1,26 +1,41 @@
+import { Button, Input, Layout, Paginator, PhoneDetailCard } from 'components';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Colors } from 'shared/colors';
+import styled from 'styled-components';
 
-const App = () => {
+const Footer = styled.div`
+  background: ${Colors.white};
+  border-radius: 15px;
+  position: sticky;
+  bottom: 0;
+`;
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div className="w-100">
+        <Input
+          label="Phone Number"
+          withoutIcon
+          placeholder="Search for a number"
+        />
+        <Button mode="submit" />
+        <Button mode="cancel" />
+        <PhoneDetailCard
+          style={{ margin: '50px 0' }}
+          currency="U$"
+          setupPrice={3.34}
+          monthyPrice={0.35}
+          handleEdit={() => {}}
+          handleRemove={() => {}}
+          phoneNumber="+55 84 91234-4321"
+        />
+        <Footer className="py-2 mt-5">
+          <Paginator />
+        </Footer>
+      </div>
+    </Layout>
   );
-};
+}
 
 export default App;
